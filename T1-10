@@ -1,0 +1,340 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+using namespace std;
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) {
+	int task_num;
+	cout << "Vvedite nomer zadaniya: " << endl;
+	cin >> task_num;
+    
+	if(task_num == 1)
+	{
+		float arr1[9], arr2[7], res[16];
+	    int i,j;
+	    float temp;
+	
+	    cout << "Vvedite 9 deistvitel'nyh elementov 1 massiva: " << endl;
+	    for(i=0;i<9;i++)
+	    {
+		    cin >> arr1[i];
+	    }
+	    cout << "Vvedite 7 deistvitel'nyh elementov 2 massiva: " << endl;
+	    for(i=0;i<7;i++)
+	    {
+		    cin >> arr2[i];
+	    }
+	
+	    for(i=0;i<9;i++)
+	    {
+		    res[i]=arr1[i];
+    	}
+	    for(i=0,j=9;j<16,i<7;i++,j++)
+	    {
+		    res[j]=arr2[i];
+	    }
+	    for(i=0;i<16;i++)
+	    {
+		    for(j=15;j>i;j--)
+		    {
+			    if(res[j-1]>res[j])
+			    {
+				    temp=res[j-1];
+				    res[j-1]=res[j];
+				    res[j]=temp;
+			    }
+		    }
+	    }
+	    cout << "Tretii massiv " << endl;
+	    for(i=0;i<16;i++)
+	    {
+		    cout << res[i] << endl;
+	    }
+	}
+	else if (task_num == 2)
+	{
+		int i;
+	    int a[9];
+	    int location=0;
+	    int max;
+	
+	
+    	for(i=0;i<9;i++)
+    	{
+	    	a[i]=-10+rand()%20;
+    	}
+    	for(i=0;i<9;i++)
+    	{
+    		cout << a[i] << endl;
+		}
+	    max=a[0];
+	    for(i=0;i<9;i++)
+	    {
+	    	if((a[i]%2!=0)&&(a[i]>0))
+	    	{
+		    	if(a[i]>max)
+	    		{
+		    		max=a[i];
+		    		location=i;
+		        }			
+	    	}
+	    }
+	    if((location==0)&&(a[0]%2!=0)&&(a[0]>0))
+	    {
+	        cout << "Maksimal'noe iz nechetnyh polozhitel'nyh elementov imeet index" << endl;
+	    	cout << location << endl;	    
+    	}
+    	else if (location!=0)
+     	{
+	        cout << "Maksimal'noe iz nechetnyh polozhitel'nyh elementov imeet index " << endl;
+	        cout << location << endl;
+	    }
+    	else
+	        cout << "Net takih elementov " << endl;
+	}
+	else if (task_num == 3)
+	{
+		int i;
+	    int a[9];
+	    int b[9];
+	
+	
+	
+    	for(i=0;i<9;i++)
+    	{
+	    	a[i]=10+rand()%90;
+    	}
+    	cout << "Dannyi massiv " << endl;
+    	for(i=0;i<9;i++)
+    	{
+	    	cout << a[i] << endl;
+    	}
+    	for(i=0;i<9;i++)
+    	{
+	    	b[i]=(a[i]/10)+(a[i]%10);
+    	}
+    	cout << "Poluchennyi massiv " << endl;
+    	for(i=0;i<9;i++)
+    	{
+	    	cout << b[i] << endl;
+    	}
+	}
+	else if (task_num == 4)
+	{
+		int i;
+	    float c[10]={2.1,3.5,2.5,3.1,4.2,5.1,6.3,7.1,8,10};
+	    float S1=0;
+	    float S2=0;
+	    float P=1;
+	    cout << "Dannyi massiv " << endl;
+    	for(i=0;i<10;i++)
+    	{
+	    	cout << c[i] << " ";
+    	}
+    	cout << endl;
+     	for(i=0;i<10;i++)
+		{
+		    if(i%2==0)
+		    {
+		    	S1+=c[i];
+	    	}
+    	}
+    	for(i=0;i<10;i++)
+    	{
+	    	if(i%2!=0)
+	    	{
+		    	S2+=c[i];
+	    	}
+    	}
+    	P=S1*S2;
+    	cout << "Proizvedenie summy elementov s chetnymi indexami i summy elementov s nechetnymi indexami ravno: " << P << endl;	
+	}
+	else if (task_num == 5)
+	{
+		int i;
+    	float a[14];
+    	int count=0;
+    	float temp;
+	
+    	cout << "Vvedite 14 deistvitel'nyh elementov massiva: " << endl;
+    	for(i=0;i<14;i++)
+    	{
+	    	cin >> a[i];
+    	}
+    	for(i=0;i<7;i++)
+    	{
+	    	temp=a[i];
+	    	a[i]=a[7+i];
+	    	a[7+i]=temp;
+	    	count++;
+    	}
+    	cout << "Poluchennyi massiv posle perestanovok: " << endl;
+    	for(i=0;i<14;i++)
+    	{
+    		cout << a[i] << endl;
+    	}
+    	cout << "Kolichestvo perestanovok ravno: " << count << endl;
+	}
+	else if (task_num == 6)
+	{
+		int i;
+	    int a[20];
+	    int count=0;
+	
+	
+    	for (i=0;i<20;i++)
+    	{
+	    	a[i]=1+rand()%99;
+		}
+    	for(i=0;i<20;i++)
+    	{
+	    	cout << a[i] << endl;
+    	}
+    	for(i=0;i<20;i++)
+    	{
+	    	if((a[i]<a[i+1])&&(a[i+1]>a[i+2]))
+		       count++;
+	    }
+	    cout << "Kolichestvo lokal'nyh maksimumov v massive ravno: " << count << endl;	
+	}
+	else if (task_num == 7)
+	{
+		int i;
+	    int a[20];
+	
+	
+	    for(i=0;i<20;i++)
+    	{
+	    	a[i]=1+rand()%99;
+    	}
+    	cout << "Dannyi massiv: " << endl;
+    	for(i=0;i<20;i++)
+    	{
+	    	cout << a[i] << endl;
+    	}
+    	cout << "Indexy posledovatel'nosti chisel kotorye monotonno ubyvayut " << endl;
+    	for(i=0;i<19;i++)
+    	{
+	    	if(a[i]>a[i+1])
+	    	{
+		       cout << i << " " << i+1 << endl;
+	    	}
+     	}
+	}
+	else if (task_num == 8)
+	{
+		int i;
+	    int a[9];
+	    int b[9];
+	
+		
+	    for(i=0;i<9;i++)
+    	{
+	    	a[i]=10+rand()%90;
+    	}
+	    cout << "Dannyi massiv " << endl;
+    	for(i=0;i<9;i++)
+    	{
+	    	cout << a[i] << endl;
+    	}
+    	for(i=0;i<9;i++)
+    	{
+	    	b[i]=(a[i]/10)-(a[i]%10);
+    	}
+    	cout << "Poluchennyi massiv " << endl;
+    	for(i=0;i<9;i++)
+    	{
+	    	cout << b[i] << endl;
+    	}
+	}
+	else if (task_num == 9)
+	{
+		int i;
+	    int a[20];
+	    int count=0;
+	
+		for(i=0;i<20;i++)
+	    {
+	    	a[i]=1+rand()%99;
+    	}
+    	cout << "Dannyi massiv: " << endl;
+		for(i=0;i<20;i++)
+    	{
+	    	cout << a[i] << endl;
+    	}
+	
+    	while(a[i]<a[i+1])
+    	{
+	    	count++;
+	    	i++;					
+     	}
+	
+    	cout << "Kolichesto uchastkov massiva, na kotorom elementy monotonno vozrastayut: " << count << endl;
+	}
+	else if (task_num == 10)
+	{
+		int i, max, min;
+	    float a[10];
+	    float b[10];
+	    float temp;	
+	
+	
+	    cout << "Vvedite 10 veshestvennyh elementov 1 massiva: " << endl;
+	    for(i=0;i<10;i++)
+    	{
+	    	cin >> a[i];		
+    	}
+    	cout << "Vvedite 10 veshestvennyh elementov 2 massiva: " << endl;
+    	for(i=0;i<10;i++)
+    	{
+	    	cin >> b[i];
+    	}
+    	for(i=0;i<10;i++)
+     	{
+	        if (!i)
+            {
+                max = i;
+                min = i;
+            }
+ 
+            if (a[i] > a[max])
+                max = i;
+            if (a[i] < a[min])
+                min = i;
+        }
+        for(i=0;i<10;i++)
+    	{
+	        if (!i)
+            {
+                max = i;
+                min = i;
+            }
+ 
+            if (b[i] > b[max])
+                max = i;
+            if (b[i] < b[min])
+                min = i;
+        }
+        temp = a[max];          
+        a[max] = b[max];
+        b[max] = temp;
+ 
+    
+     	cout << "Poluchennyi 1 massiv " << endl;
+    	for(i=0;i<10;i++)
+    	{
+	    	cout << a[i] << endl;
+    	}
+    	cout << "Poluchennyi 2 massiv " << endl;
+    	for(i=0;i<10;i++)
+    	{
+		    cout << b[i] << endl;
+	    }
+	}
+	else
+	    cout << "Udachi!" << endl;
+    return 0;
+}
