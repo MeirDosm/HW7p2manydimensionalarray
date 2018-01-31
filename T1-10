@@ -266,10 +266,12 @@ int main(int argc, char** argv) {
 	    	cout << a[i] << endl;
     	}
 	
-    	while(a[i]<a[i+1])
+    	for (i=0;i<20;i++)
     	{
-	    	count++;
-	    	i++;					
+	    	if (a[i]<a[i+1])
+		{
+		      count++;
+	    	}					
      	}
 	
     	cout << "Kolichesto uchastkov massiva, na kotorom elementy monotonno vozrastayut: " << count << endl;
